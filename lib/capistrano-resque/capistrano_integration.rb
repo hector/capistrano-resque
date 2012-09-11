@@ -43,7 +43,7 @@ module CapistranoResque
               number_of_workers.times do
                 pid = "./tmp/pids/resque_worker_#{worker_id}.pid"
                 run "cd #{current_path} && RAILS_ENV=#{app_env} QUEUE=\"#{queue}\" \
-PIDFILE=#{pid} BACKGROUND=yes VERBOSE=1 #{workers_env} bundle exec rake environment resque:work"
+PIDFILE=#{pid} BACKGROUND=yes VERBOSE=1 #{workers_env} bundle exec rake resque:work"
                 worker_id += 1
               end
             end
